@@ -1,16 +1,63 @@
-# React + Vite
+# Text Extractor App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance web application that extracts text from images instantly using Optical Character Recognition (OCR). Built with **React** and **Tesseract.js**, running entirely in the browser.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **Framework**: [React](https://react.dev/) (via [Vite](https://vitejs.dev/))
+-   **OCR Engine**: [Tesseract.js](https://tesseract.projectnaptha.com/) (WASM-based)
+-   **Styling**: Vanilla CSS with Glassmorphism design system
+-   **State Management**: React Hooks (`useState`, `useEffect`)
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-   **Client-Side OCR**: Extracts text locally without sending images to a server, ensuring privacy and speed.
+-   **Drag & Drop Upload**: Intuitive file handling supporting JPG, PNG, and BMP formats.
+-   **Real-time Progress**: Visual feedback with a loading spinner and progress percentage during extraction.
+-   **Smart Reset**: "Reset" button allows users to quickly process multiple images without refreshing.
+-   **Clipboard Integration**: One-click "Copy" button to save extracted text.
+-   **Responsive Design**: Fully responsive layout that works on desktop and mobile devices.
 
-## Expanding the ESLint configuration
+## 🛠️ Architecture
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The application follows a simple component-based architecture:
+
+-   **`App.jsx`**: The core container managing application state (`image`, `text`, `isLoading`, `progress`).
+    -   Handles file input events (drop, click).
+    -   Initializes Tesseract worker for text recognition.
+    -   Manages UI state transitions (Upload -> Processing -> Result).
+-   **`index.css`**: Contains the global design system, variables for theming (colors, glass effects), and component styles.
+
+## 📦 Installation & Setup
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/uncleshrey/text_extractor.git
+    cd text_extractor
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server**
+    ```bash
+    npm run dev
+    ```
+
+4.  **Build for production**
+    ```bash
+    npm run build
+    ```
+
+## 🚀 Deployment
+
+This project is optimized for static hosting.
+
+-   **Vercel/Netlify**: Simply connect your GitHub repo or drag-and-drop the `dist` folder after building.
+-   **GitHub Pages**: Configure `base` in `vite.config.js` and deploy the `dist` folder.
+
+## 📄 License
+
+MIT License - feel free to use this project for personal or commercial purposes.
